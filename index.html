@@ -11,27 +11,25 @@
     </head>
     <body>
       <div class="container">
-        <div class="main border mt-4">
-            <div class="row p-3">
-             <div class="col ">  
-        <form id="search-form">
+        <div class="main border mt-4 " >
             
-            <input type="text" 
-            placeholder="Type a city.."
-            class="form-input p-2 m-5 " >
-       
-            
-            <input type="submit"
-            value="Search"
-            class="btn btn-secondary m-5">
-        
-        </form>
-    </div> 
-    </div>
-    <div class="row">
+    
+    <div class="row text-center">
         <h1>Tehran</h1>
     </div>
-        <div class="row">
+    <div class="row d-flex justify-content-evenly">
+        <div class="col">
+        <img src="" alt=""/>
+    </div>
+    <div class="col">
+        <span id="temperature">20</span>
+        <span id="units">°C</span>
+        <span>|</span>
+        <span id="unit">°F</span>
+    </div>
+    </div>
+
+        <div class="row border m-3">
             <div class="col">
                 <ul>
                     <li id="date">Fri 23</li>
@@ -46,18 +44,26 @@
                 </ul>
             </div>
         
-        </div>
-        <div class="row">
-            <div class="col">
-            <img src="" alt=""/>
-        </div>
-        <div class="col">
-            <span id="temperature">20</span>
-            <span id="units">°C</span>
-            <span>|</span>
-            <span id="unit">°F</span>
-        </div>
-        </div>
+       
+
+       
+    </div>
+        <div class="row p-3 d-flex justify-content-evenly border m-3">
+            <div class="col ">  
+       <form id="search-form">
+           
+           <input type="text" 
+           placeholder="Type a city.."
+           class="form-input p-2 m-5 " >
+      
+           </div>
+           <div class="col">
+           <input type="submit"
+           value="Search"
+           class="btn btn-dark m-5">
+       </div>
+       </form>
+   </div> 
        
     </div>
             <div class="link">
