@@ -28,6 +28,12 @@ let month = months[now.getMonth()];
 
 currentDate.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
 
+function ShowWeather(){
+    
+}
+
 
 let url=`https://api.shecodes.io/weather/v1/current?query=Lisbon&key=b69109c34o2t8f93bad7f025530244c3&units=metric`;
-console.log(url);
+
+axios.get(url).then(ShowWeather);
+
