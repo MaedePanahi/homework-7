@@ -36,16 +36,24 @@ function ShowWeather(response){
   let Humidity = document.querySelector("#humidity");
   let Wind = document.querySelector("#wind");
   let Icon = document.querySelector("#icon")
-  temp.innerHTML=Math.round(response.temperature.current);
+  temp.innerHTML=Math.round(response.temperature.pressure);
   Description.innerHTML=response.condition.Description;
   City.innerHTML=response.City;
   Humidity.innerHTML=response.temperature.Humidity;
   Wind.innerHTML=Math.round(response.Wind.speed);
   Icon.innerHTML=response.condition.icon_url;
 }
+function Search(event){
+    event.preventDefault();
+    let Input = document.querySelector("#form-control");
+    Input.innerHTML = City.value;
+    
 
+}
 
 let url=`https://api.shecodes.io/weather/v1/current?query=Lisbon&key=b69109c34o2t8f93bad7f025530244c3&units=metric`;
 
 axios.get(url).then(ShowWeather);
 
+let Form = document.querySelector("#search-form");
+Form.addEventListener("submit" , Search);
