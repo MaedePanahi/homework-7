@@ -28,8 +28,20 @@ let month = months[now.getMonth()];
 
 currentDate.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
 
-function ShowWeather(){
-    
+function ShowWeather(response){
+  console.log(response.data)
+  let temp=document.querySelector("#temperature");
+  let Description=document.querySelector("#description");
+  let City = document.querySelector("#city");
+  let Humidity = document.querySelector("#humidity");
+  let Wind = document.querySelector("#wind");
+  let Icon = document.querySelector("#icon")
+  temp.innerHTML=Math.round(response.temperature.current);
+  Description.innerHTML=response.condition.Description;
+  City.innerHTML=response.City;
+  Humidity.innerHTML=response.temperature.Humidity;
+  Wind.innerHTML=Math.round(response.Wind.speed);
+  Icon.innerHTML=response.condition.icon_url;
 }
 
 
