@@ -32,30 +32,31 @@ function ShowWeather(response){
   console.log(response.data)
   let temp=document.querySelector("#temperature");
   let Description=document.querySelector("#description");
-  let City = document.querySelector("#city");
+  
   let Humidity = document.querySelector("#humidity");
   let Wind = document.querySelector("#wind");
-  let Icon = document.querySelector("#icon")
+//   let Icon = document.querySelector("#icon");
   temp.innerHTML=Math.round(response.data.temperature.current);
-  City.innerHTML=response.data.city;
+//   CityName.innerHTML=response.data.city;
   Description.innerHTML=response.data.condition.description;
   Humidity.innerHTML=`Humidity : ${Math.round(response.data.temperature.humidity)}`;
   Wind.innerHTML=`Wind : ${Math.round(response.data.wind.speed)}`;
-  
-  
 //   Icon.innerHTML=response.data.condition.icon_url;
+}
+
+function getWeather(query){
+let url=`https://api.shecodes.io/weather/v1/current?query=${query}&key=b69109c34o2t8f93bad7f025530244c3&units=metric`;
+
+axios.get(url).then(ShowWeather);
 }
 function Search(event){
     event.preventDefault();
     let Input = document.querySelector("#form-control");
-    Input.innerHTML = City.value;
-
-
+    let CityName = document.querySelector("#city");
+    // Input.innerHTML = CityName.value;
+    CityName.innerHTML = Input.value;
+    getWeather(Input.value);
+    
 }
-
-let url=`https://api.shecodes.io/weather/v1/current?query=Lisbon&key=b69109c34o2t8f93bad7f025530244c3&units=metric`;
-
-axios.get(url).then(ShowWeather);
-
 let Form = document.querySelector("#search-form");
 Form.addEventListener("submit" , Search);
