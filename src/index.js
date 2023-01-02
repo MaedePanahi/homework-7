@@ -1,32 +1,18 @@
-let now = new Date();
-
-let currentDate = document.querySelector("#date");
-
- let date = now.getDate();
- let hours = now.getHours();
- let minutes = now.getMinutes();
- let year = now.getFullYear();
-
- let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
- let day = days[now.getDay()];
-
-  let months = [
-   "Jan",
-   "Feb",
-   "March",
-    "Apr",
-   "May",
-   "Jun",
-  "Jul",
-   "Aug",
-  "Sep",
-   "Oct",
-   "Nov",
-  "Dec"
- ];
-let month = months[now.getMonth()];
-
-currentDate.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}, ${year}`;
+function formatDate(timestamp){
+    let date = new date (timestamp);
+    let hours = date.getHours();
+    if(hours < 10){
+        hours = `0${hours}`
+    }
+    let minutes = date.getMinutes();
+    if(minutes < 10){
+        minutes = `0${minutes}`
+    }
+    let days = ["Sunay", "Monay", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = days[date.getDay()];
+    return `Lasted update : ${day} ${hours} : ${minutes}`;
+}
+ 
 
 function ShowWeather(response){
   console.log(response.data)
@@ -35,6 +21,8 @@ function ShowWeather(response){
   let Humidity = document.querySelector("#humidity");
   let Wind = document.querySelector("#wind");
   let IconElement = document.querySelector("#icon");
+  let dateElement=document.querySelector("#date");
+  dateElement.innerHTML=formatDate(response.date.time*1000);
   celsiusTemperature = response.data.temperature.current;
   temp.innerHTML=Math.round(celsiusTemperature);
   Description.innerHTML=response.data.condition.description;
