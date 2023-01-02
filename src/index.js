@@ -36,18 +36,20 @@ function ShowWeather(response){
   let Humidity = document.querySelector("#humidity");
   let Wind = document.querySelector("#wind");
   let Icon = document.querySelector("#icon")
-  temp.innerHTML=Math.round(response.temperature.pressure);
-  Description.innerHTML=response.condition.Description;
-  City.innerHTML=response.City;
-  Humidity.innerHTML=response.temperature.Humidity;
-  Wind.innerHTML=Math.round(response.Wind.speed);
-  Icon.innerHTML=response.condition.icon_url;
+  temp.innerHTML=Math.round(response.data.temperature.current);
+  City.innerHTML=response.data.city;
+  Description.innerHTML=response.data.condition.description;
+  Humidity.innerHTML=`Humidity : ${Math.round(response.data.temperature.humidity)}`;
+  Wind.innerHTML=`Wind : ${Math.round(response.data.wind.speed)}`;
+  
+  
+//   Icon.innerHTML=response.data.condition.icon_url;
 }
 function Search(event){
     event.preventDefault();
     let Input = document.querySelector("#form-control");
     Input.innerHTML = City.value;
-    
+
 
 }
 
