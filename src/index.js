@@ -7,12 +7,12 @@ let currentDate = document.querySelector("#date");
  let minutes = now.getMinutes();
  
 
- let days = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"];
+ let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
  let day = days[now.getDay()];
 
  
 
-currentDate.innerHTML = `Last updated : ${day} ${date}, ${hours}:${minutes}`;
+currentDate.innerHTML = `Last update: ${day} ${date}, ${hours}:${minutes}`;
 
 function ShowWeather(response){
   console.log(response.data)
