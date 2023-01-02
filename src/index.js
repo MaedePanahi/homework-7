@@ -35,13 +35,14 @@ function ShowWeather(response){
   
   let Humidity = document.querySelector("#humidity");
   let Wind = document.querySelector("#wind");
-//   let Icon = document.querySelector("#icon");
+  let IconElement = document.querySelector("#icon");
   temp.innerHTML=Math.round(response.data.temperature.current);
 //   CityName.innerHTML=response.data.city;
   Description.innerHTML=response.data.condition.description;
   Humidity.innerHTML=`Humidity : ${Math.round(response.data.temperature.humidity)}`;
   Wind.innerHTML=`Wind : ${Math.round(response.data.wind.speed)}`;
 //   Icon.innerHTML=response.data.condition.icon_url;
+IconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
 }
 
 function getWeather(query){
