@@ -10,3 +10,11 @@ ul{
 .description::first-letter{
     text-transform: capitalize;
 }
+.active{
+    color: gray;
+    cursor: default;
+    text-decoration: none;
+}
+.active:hover{
+    text-decoration: none;
+}

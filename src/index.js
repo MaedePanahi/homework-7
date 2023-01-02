@@ -32,11 +32,11 @@ function ShowWeather(response){
   console.log(response.data)
   let temp=document.querySelector("#temperature");
   let Description=document.querySelector("#description");
-  
   let Humidity = document.querySelector("#humidity");
   let Wind = document.querySelector("#wind");
   let IconElement = document.querySelector("#icon");
-  temp.innerHTML=Math.round(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
+  temp.innerHTML=Math.round(celsiusTemperature);
   Description.innerHTML=response.data.condition.description;
   Humidity.innerHTML=`Humidity : ${Math.round(response.data.temperature.humidity)}`;
   Wind.innerHTML=`Wind : ${Math.round(response.data.wind.speed)}`;
@@ -62,6 +62,31 @@ function Search(event){
     document.getElementById("search-form").reset();
     
 }
+function displayFahrenheitTemp(event){
+    event.preventDefault();
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let TempretureElement = document.querySelector("#temperature");
+    let fahrenheitTemperature= (celsiusTemperature * 9)/5 + 32;
+    TempretureElement.innerHTML=Math.round(fahrenheitTemperature);
+
+}
+function displayCelsiusTemp(event){
+    event.preventDefault();
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    let TempretureElement = document.querySelector("#temperature");
+    TempretureElement.innerHTML=Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
+let fahrenheitLink=document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click" , displayFahrenheitTemp);
+
+let celsiusLink=document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click" , displayCelsiusTemp);
+
+
 
 let Form = document.querySelector("#search-form");
 Form.addEventListener("submit" , Search);
