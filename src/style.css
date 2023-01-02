@@ -7,3 +7,6 @@ ul{
 .temp{
     font-size: xx-large;
 }
+.description::first-letter{
+    text-transform: capitalize;
+}
