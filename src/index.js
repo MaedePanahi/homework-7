@@ -37,12 +37,10 @@ function ShowWeather(response){
   let Wind = document.querySelector("#wind");
   let IconElement = document.querySelector("#icon");
   temp.innerHTML=Math.round(response.data.temperature.current);
-//   CityName.innerHTML=response.data.city;
   Description.innerHTML=response.data.condition.description;
   Humidity.innerHTML=`Humidity : ${Math.round(response.data.temperature.humidity)}`;
   Wind.innerHTML=`Wind : ${Math.round(response.data.wind.speed)}`;
-//   Icon.innerHTML=response.data.condition.icon_url;
-IconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+  IconElement.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
 }
 
 function getWeather(query){
@@ -54,7 +52,6 @@ function Search(event){
     event.preventDefault();
     let Input = document.querySelector("#form-control");
     let CityName = document.querySelector("#city");
-    // Input.innerHTML = CityName.value;
     CityName.innerHTML = Input.value;
     getWeather(Input.value);
     
