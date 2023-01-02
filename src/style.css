@@ -4,3 +4,6 @@ ul{
 .city{
     text-transform: capitalize;
 }
+.temp{
+    font-size: xx-large;
+}
