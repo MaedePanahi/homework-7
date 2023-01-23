@@ -14,6 +14,8 @@ let currentDate = document.querySelector("#date");
 
 currentDate.innerHTML = `Last update: ${day} ${date}, ${hours}:${minutes}`;
 
+
+
 function ShowWeather(response){
   console.log(response.data)
   let temp=document.querySelector("#temperature");
