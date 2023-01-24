@@ -37,7 +37,7 @@ let url=`https://api.shecodes.io/weather/v1/current?query=${query}&key=b69109c34
 axios.get(url).then(ShowWeather);
 }
 function clearThis(target) {
-    if (target.value == 'exemplo') {
+    if (target.value == 'exemple') {
         target.value = "";
     }
 }
